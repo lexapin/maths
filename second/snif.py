@@ -211,7 +211,7 @@ class UDP(object):
     udp_repr += '\n\t\tSource Port: {}, Destination Port: {}, Length: {}'.format(self.src_port, self.dest_port, self.size)
     return ipv4_repr + udp_repr
 
-def scan_network():
+def scan_network(filter = None):
   # Сканирует сеть
   global CTRL_C
   # Сканируем сеть. Смотрим сырые пакеты.
@@ -223,9 +223,10 @@ def scan_network():
     ipv4 = IPv4(data)
     # Если пакет IPv4 то его можно парсить дальше
     packet = ipv4.encode_ipv4_payload()
-    # Печатаем параметры пакета
-    print(packet)
+    # Печатаем параметры пакета c учетом фильтра
+    if filter is None: print(packet); continue
+    if isinstance(packet, filter): print(packet)
 
 
 if __name__ == '__main__':
-  scan_network()
+  scan_network(filter = ICMP)
