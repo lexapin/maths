@@ -12,7 +12,7 @@ class PlayGround(object):
     self.players = []
 
   def clear(self):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
   def add_field(self, rows, cols, lets = []):
     self.field = Field(rows, cols)
