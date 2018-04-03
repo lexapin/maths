@@ -46,8 +46,6 @@ def test2():
   str_data+='\nTest 2\nField 5x5\n'
   str_data+='Player A: start_position E3, destination_position B1\n'
   str_data+='Player B: start_position B1, destination_position E3\n'
-  str_data+='Player C: start_position E3, destination_position B1\n'
-  str_data+='Player D: start_position B1, destination_position E3\n'
   str_data+='Bariers: C2, D1, D2\n'
   print(str_data)
   for step in pg.play_step():
@@ -95,10 +93,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
-# П.С, Сложные тесты пожалуйста не пишите
-# Случаев обхода препятствий очень много
-# Например, в случае 'бутылочного горлышка', кто-то должен пропускать ход
-# А в случае 'узкого моста', нужно вообще продумать алгоритм хода в обратную сторону (в зависимости от приоритетов)
-# В целом программа решает только базовые алгоритмы обхода, как были в задании
-# Спасибо за внимание.
